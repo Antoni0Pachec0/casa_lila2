@@ -19,7 +19,7 @@ class ControladorPlantilla{
         #Asi se declara la inclusion de la plantilla para el index php
 
         #===:plantilla.php===
-        include "View/Plantilla.php";
+        include "view/plantilla.php";
     }
     
 }

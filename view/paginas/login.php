@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/casa_lila/html/css/login.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
 </head>
@@ -74,13 +74,13 @@
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="email" required>
+                        <input type="email" name="loginEmail">
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="contraseña" required>
+                        <input type="password" name="loginPassword" required>
                         <label>Contraseña</label>
                     </div>
 
@@ -102,24 +102,24 @@
             </div>
 
             <div class="form-box register">
-                <form action="registro.php" method="POST">
+                <form method="POST">
                     <h2>Registrate</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-user'></i></i></span>
-                        <input type="text" name="nombre" required>
+                        <input type="text" name="loginRegistroNombre" required>
                         <label>Nombre</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="email" required>
+                        <input type="email" name="loginRegistroEmail" required>
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="contraseña" required>
+                        <input type="password" name="loginRegistroPassword" required>
                         <label>Contraseña</label>
                     </div>
 
@@ -128,7 +128,7 @@
                         
                     </div>
 
-                    <button type="submit" class="btn" name="register">Registrarme</button>
+                    <button type="submit" class="btn" name="btnLoginRegistro">Registrarme</button>
 
                     <div class="login-register">
                         <p>Ya tiene una cuenta? <a href="#" class="login-link">Inicia sesión</a></p>
@@ -138,6 +138,28 @@
         </div>
     </div>
     <script src="http://localhost/casa_lila/html/js/login.js"></script>
+
+    <?php
+
+    $registro = controladorLogin::ctrRegistro();
+
+    if($registro == "ok"){
+
+        echo '
+        <script>
+  
+          if(window.history.replaceState){
+            
+              window.history.replaceState(null, null, window.location.href);
+          }
+  
+        </script>
+        ';
+  
+        echo'<h1>El usuario se ha registrado exitosamente</h1>';
+        }
+
+    ?>
 
 </body>
 </html>
