@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+/*Pseudoclases para los colores*/
+:root{
+    --colorTextos: #0b0b0b;
+    --colorBotones: #503559;
+    --colorBotonesClaro: #d58cfc;
+    --colorTextosClaro: #f3e5f5;
+    --colorFondos: #d6c8de;
+}
+
+/*Reiniciamos los tamaños y margenes*/
 *{
     margin: 0;
     padding: 0;
@@ -11,14 +21,15 @@ body{
     background: #dadada;
 }
 
+/*Barra de navegacion*/
 .header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    padding: 20px 12.5%;
-    background: #1d2951;
+    height: 70px;
+    padding: 20px;
+    background: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +40,7 @@ body{
 .menu{
     position: relative;
     margin: none;
-    color: #e4e4e4;
+    color: var(--colorTextos);
     font-size: 60px;
     background: none;
     border: none;
@@ -56,21 +67,24 @@ body{
     z-index: 100;
 }
 
+/*Si el boton menu se presiona, se hace visible la sombra*/
 #btn_menu:checked ~ .container_menu{
     opacity: 1;
     visibility: visible;
 }
 
+/*Opciones del menu*/
 .cont_menu{
     width: 100%;
     max-width: 250px;
-    background: #1c1c1c;
+    background: var(--colorTextos);
     height: 100vh;
     position: relative;
     transition: all 500ms ease;
     transform: translateX(-100%);
 }
 
+/*Si se presiona el boton menu, se traslada hasta ser visible*/
 #btn_menu:checked ~ .container_menu .cont_menu{
     transform: translateX(0%);
 }
@@ -79,6 +93,7 @@ body{
     transform: translateY(15%);
 }
 
+/*Opciones*/
 .cont_menu nav a{
     display: block;
     text-decoration: none;
@@ -88,6 +103,7 @@ body{
     transition: all 500ms ease;
 }
 
+/*Animacion de opciones*/
 .cont_menu nav a:hover{
     border-left: 5px solid #c7c7c7;
     background: #1f1f1f;
@@ -105,7 +121,7 @@ body{
 .navbar a{
     position: relative;
     font-size: 16px;
-    color: #e4e4e4;
+    color: var(--colorTextos);
     text-decoration: none;
     font-weight: 500;
     margin-right: 30px;
@@ -118,7 +134,7 @@ body{
     bottom: -6px;
     width: 100%;
     height: 2px;
-    background: #e4e4e4;
+    background: var(--colorTextos);
     border-radius: 5px;
     transform: translateY(10px);
     opacity: 0;
@@ -131,15 +147,54 @@ body{
 }
 
 .perfil{
-    color: #e4e4e4;
+    color: var(--colorTextos);
     font-size: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+#btn-perfil{
+    position: absolute;
+    display: none;
+}
+
+/*Opciones desplegables del perfil*/
+.opciones{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    right: 0;
+    background: var(--colorFondos);
+    top: 70px;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: .2s ease-in-out;
+}
+
+/*Si se presiona el boton perfil, se trasladan las opciones hasta se visibles*/
+#btn-perfil:checked ~ .opciones{
+    visibility: visible;
+    transform: translateX(0%);
+}
+
+.opciones a{
+    display: block;
+    height: 50px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--colorTextos);
+}
+
+.opciones a:hover{
+    background: #cca9dd;
 }
 
 .search-bar{
     width: 250px;
     height: 45px;
     background: transparent;
-    border: 2px solid #e4e4e4;
+    border: 2px solid var(--colorTextos);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -151,12 +206,12 @@ body{
     border: none;
     outline: none;
     font-size: 16px;
-    color: #e4e4e4;
+    color: var(--colorTextos);
     padding-left: 10px;
 }
 
 .search-bar input::placeholder{
-    color: #e4e4e4;
+    color: var(--colorTextos);
 }
 
 .search-bar button{
@@ -173,216 +228,243 @@ body{
 
 .search-bar button i{
     font-size: 22px;
-    color: #e4e4e4;
+    color: var(--colorTextos);
 }
 
 .logo{
     width: 30%;
     height: 100%;
-    background: #dadada;
+    background: var(--colorTextos);
     margin-left: 30px;
     margin-right: 30px;
 }
 
-.inicio{
-    position: relative;
-    width: 95%;
-    height: 300px;
-    background: white;   
-    left: 2.5%;
-    top: 100px;
-    padding: 20px;
-    border-radius: 10px;
-}
+/*----Contenido central----*/
 
-.inicio #titulo{
-    position: relative;
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.inicio p{
-    position: relative;
-    width: 55%;
-    top: 50px;
-}
-
-.inicio .gradient{
-    width: 41.6%;
-    height: 100%;
-    background: transparent;
-    right: 0;
-    top: 0;
-    position: absolute;
-    overflow: hidden;
-}
-
-.inicio .gradient::before{
-    content: "";
+/*Parte superior*/
+.superior{
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: linear-gradient(to right, rgb(255,255,255),30%, transparent);
-    z-index: 1;
-}
-
-.inicio .gradient img{
+    height: 90vh;
+    background: #1c1c1c;
+    top: 70px;
     position: relative;
-    height: 100%;
-    right: 0;
-    top: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
-.slider-frame{
-    position: absolute;
-    width: 34%;
-    height: 245px;
-    overflow: hidden;
-    top: 0;
-    bottom: 0;
+.superior{
+    .info{
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 10%;
+    }
+
+    .info h1{
+        font-size: 60px;
+        font-weight: 500;
+        color: var(--colorTextosClaro);
+    }
+
+    .info p{
+        position: absolute;
+        bottom: 0;
+        color: var(--colorTextosClaro);
+    }
+
+    .img{
+        position: absolute;
+        height: 50%;
+        width: 35%;
+        right: 10%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        overflow: hidden;
+        background: url('https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_1da0673f82eccc3c9d222237dec40e36bf10eef3.1920x1080.jpg?t=1683059745');
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .background{
+        width: 100%;
+        height: 100%;
+        background: url('https://2.bp.blogspot.com/-CTDg5kEEbFQ/UPVsPXCplkI/AAAAAAAAzKc/5TPWB_96xJI/s1600/Vista-de-un-atardecer-en-la-orilla-de-la-playa_imagenes-hd-de-playas-y-atardeceres.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: .5;
+    }
+}
+
+/*Parte media*/
+.medio{
+    width: 100%;
+    height: 200vh;
+    position: relative;
+    margin-top: 150px;
+}
+
+.medio div{
+    position: relative;
+    width: 60%;
+    height: auto;
+    left: 0;
+    right: 0;
     margin: auto;
-    border-radius: 10px;
 }
 
-.slider-frame ul{
-    display: flex;
-    padding: 0;
-    width: 400%;
-}
-
-.slider-frame li{
-    list-style: none;
-    width: 100%;
-}
-
-.slider-frame img{
-    width: 100%;
-    animation: slide 16s infinite alternate ease-in-out;
-}
-
-@keyframes slide {
-    0%{margin-left: 0%;}
-    20%{margin-left: 0%;}
-
-    25%{margin-left: -100%;}
-    45%{margin-left: -100%;}
-
-    50%{margin-left: -200%;}
-    70%{margin-left: -200%;}
-
-    75%{margin-left: -300%;}
-    95%{margin-left: -300%;}
-}
-
-.s-cursos{
-    position: relative;
-    width: 95%;
-    left: 2.5%;
-    margin-top: 120px;
-    background: #fff;
-    height: 400px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.s-cursos .cursos{
-    position: absolute;
-    width: 18%;
-    height: 90%;
-    background: #dadada;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: .3s ease;
-}
-
-.s-cursos .cursos:hover{
-    transform: scale(1.1);
-}
-
-.s-cursos .cursos img{
-    position: relative;
-    height: 60%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    left: -10%;
-}
-
-.s-cursos .cursos p{
-    text-align: center;
-    font-size: 22px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.s-cursos .cursos i{
-    position: relative;
-    left: 40%;
-    font-size: 50px;
-    top: 20px;
-}
-
-.s-cursos #culturales{
-    position: absolute;
-    right: 41%;
-}
-
-.s-cursos #academicos{
-    position: absolute;
-    right: 21.5%;
-}
-
-.s-cursos #verano{
-    position: absolute;
-    right: 2%;
-}
-
-.info{
-    position: relative;
-    margin-top: 20px;
-    background:  white;
-    width: 95%;
-    height: 300px;
-    left: 2.5%;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.info label{
-    position: absolute;
+.medio div p{
     font-size: 40px;
-    height: auto;
-    width: auto;
+    text-align: center;
+    position: relative;
 }
 
-.info div{
-    position: absolute;
+.medio #imagen{
+    position: relative;
+    margin-top: 90px;
+    height: 115vh;
+    width: 100%;
+    background: url('https://3.bp.blogspot.com/-eilZTdgbWPA/XFUltCS4Z1I/AAAAAAAABz0/feDxTa3Emtsb3Wx4xxu0hWnFrohqtwQfwCKgBGAs/w0/mountain-lake-scenery-nature-cottage-25-4K.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/*Parte inferior*/
+.inferior{
+    width: 100%;
+}
+
+/*Tamaño y posicion contenedor*/
+.inferior .info-cursos{
+    width: 80%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 3px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*Tamaño y posicion del contenedos de las pestañas*/
+.inferior .info-cursos .tab_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #1c1c1c;
+    position: relative;
+}
+
+/*Tamaño y posicion de las pestañas*/
+.inferior .info-cursos .tab_box .tab_btn{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--colorTextos);
+    background: none;
+    border: none;
+    padding: 18px;
+    cursor: pointer;
+    outline: none;
+}
+
+/*Si se presiona una pestaña, el color de fuente cambia con animacion*/
+.inferior .info-cursos .tab_box .tab_btn.active{
+    color: var(--colorBotonesClaro);
+    transition: all .3s ease-in-out;
+}
+
+/*Caja de contenido, el height y width es automatico*/
+.inferior .info-cursos .content_box{
+    padding: 20px;
+}
+
+/*Display none oculta el contenido y cuando esté activa una pestaña aparece con animacion*/
+.inferior .info-cursos .content_box .content{
+    display: none;
+    animation: moving .5s ease;
+}
+
+/*Animacion para mostrar el contenido*/
+@keyframes moving{
+    from{transform: translateX(50px); opacity: 0;}
+    to{transform: translateX(0px); opacity: 1;}
+}
+
+/*Posicionamiento de la informacion*/
+.inferior .info-cursos .content_box .content .informacion{
+    width: 100%;
+    right: 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inferior .info-cursos .content_box .content .informacion div{
     width: 55%;
-    height: auto;
-    top: 150px;
+    color: var(--colorTextos);
 }
 
-.info img{
-    position: absolute;
-    height: 110%;
-    right: -50px;
-    top: -20px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    
+.inferior .info-cursos .content_box .content .informacion .imgn{
+    width: 43%;
+    height: 270px;
+    right: 0;
 }
+
+/*Fondos de las imagenes de todos los contenidos, el ID está en orden de izquierda a derecha tomando las pestañas de referencia*/
+.inferior .info-cursos .content_box .content .informacion{
+    #c1{
+        background: url('https://static.leonoticias.com/www/multimedia/202107/06/media/MM-senderismo-asturias/oddle-1-ksRC--1350x900@El%20Comercio.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    #c2{
+        background: url('https://www.ifam.es/colombia/wp-content/uploads/sites/13/2015/08/imagenes-de-paisajes-hermosos-4.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    #c3{
+        background: url('https://res.cloudinary.com/simpleview/image/upload/v1613600936/clients/norway/Urnes_Stave_Church_luster_fjord_Norway_photo_Thomas_Morel_646b0cd1-2926-4b68-867e-8d4a6abba6b2.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    #c4{
+        background: url('https://viaturi.com/wp-content/uploads/2017/08/fiordos-noruegos-mas-bonitos.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/*Cuando se presione una pestaña, el display cambia para mostrar solo el contenido correspondiente a esa pestaña*/
+.inferior .info-cursos .content_box .content.active{
+    display: block;
+}
+
+/*Tamaño, posicion y transicion de la linea*/
+.inferior .info-cursos .tab_box .line{
+    position: absolute;
+    top: 62px;
+    left: 75px;
+    width: 90px;
+    height: 5px;
+    background-color: var(--colorBotonesClaro);
+    transition: all .3s ease-in-out;
+}
+
+/*Footer*/
 
 .footer{
     position: relative;
+    margin-top: 15vh;
     width: 100%;
     height: 100px;
-    background: #1d2951;
-    color: #e4e4e4;
+    background: #fff;
+    color: var(--colorTextos);
     padding: 30px;
 }
 
@@ -405,7 +487,7 @@ body{
 }
 
 .footer .c_electronico a{
-    color: #e4e4e4;
+    color: var(--colorTextos);
     text-decoration: none;
     font-weight: 300;
 }
@@ -416,7 +498,7 @@ body{
 }
 
 .footer .direccion p{
-    color: #e4e4e4;
+    color: var(--colorTextos);
     text-decoration: none;
     font-weight: 300;
 }
@@ -427,7 +509,7 @@ body{
 }
 
 .footer .sociales i{
-    color: #e4e4e4;
+    color: var(--colorTextos);
     font-size: 25px;
     margin-right: 15px;
     transition: .3s ease;

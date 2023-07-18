@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/Login.css">
+    <link rel="stylesheet" href="css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="#">Home</a>
-            <a href="#">Nosotros</a>
+            <a href="#">Inicio</a>
             <a href="#">Servicios</a>
             <a href="#">Contacto</a>
         </nav>
@@ -24,7 +23,9 @@
     </header>
 
     <div class="background"></div>
+
     <div class="container">
+        <div id="difuser"></div>
         <div class="content">
             <h2 class="logo"><i class='bx bxl-xing'></i>Casa Lila</h2>
 
@@ -44,7 +45,7 @@
 
         <div class="logreg-box">
             <div class="form-box login">
-                <form action="validar.php" method="POST">
+                <form action="">
                     <h2>Inicia sesión</h2>
 
                     <div class="input-box">
@@ -69,21 +70,23 @@
                     <div class="login-register">
                         <p>No tiene una cuenta? <a href="#" class="register-link">Cree una</a></p>
                     </div>
-
-                    <div class="bad">
-                        <label id=>Usuario o contraseña incorrectos</label>
-                    </div>
                 </form>
             </div>
 
             <div class="form-box register">
-                <form action="registro.php" method="POST">
+                <form action="">
                     <h2>Registrate</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-user'></i></i></span>
                         <input type="text" name="nombre" required>
                         <label>Nombre</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-user'></i></i></span>
+                        <input type="text" name="apellido" required>
+                        <label>Apellido</label>
                     </div>
 
                     <div class="input-box">
@@ -98,11 +101,6 @@
                         <label>Contraseña</label>
                     </div>
 
-                    <div class="remember-forgot">
-                        <label><input type="checkbox"> Acepto los terminos y condiciones</label>
-                        
-                    </div>
-
                     <button type="submit" class="btn" name="register">Registrarme</button>
 
                     <div class="login-register">
@@ -114,6 +112,6 @@
         </div>
     </div>
 
-    <script src="Js/Login.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
