@@ -11,7 +11,6 @@ body{
     background: #dadada;
 }
 
-/*Barra de navegacion*/
 .header{
     position: fixed;
     top: 0;
@@ -185,153 +184,201 @@ body{
     margin-right: 30px;
 }
 
-/*Contenido central*/
-
-main{
+.inicio{
     position: relative;
-    width: 100%;
-    height: 700px;
+    width: 95%;
+    height: 300px;
+    background: white;   
+    left: 2.5%;
     top: 100px;
-}
-
-/*Parte izquierda*/
-main .izquierdo{
-    position: absolute;
-    margin-left: 20px;
-    width: 72.5%;
-    height: 100%;
-    background: #1d2951;
-    border-radius: 10px;
     padding: 20px;
-}
-
-.izquierdo .titulo{
-    text-align: center;
-    font-size: 40px;
-    color: #e4e4e4;
-}
-
-/*Parte izquierda carrusel de imagenes*/
-.izquierdo .slider{
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    width: 60%;
-    height: 50%;
-    background: #1c1c1c;
-}
-
-.slider{
-    width: 650px;
-    max-width: 100vw;
-    height: 350px;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
     border-radius: 10px;
 }
 
-.list{
+.inicio #titulo{
+    position: relative;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.inicio p{
+    position: relative;
+    width: 55%;
+    top: 50px;
+}
+
+.inicio .gradient{
+    width: 41.6%;
+    height: 100%;
+    background: transparent;
+    right: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.inicio .gradient::before{
+    content: "";
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    width: max-content;
-    transition: 1s;
-}
-
-.list img{
-    width: 650px;
-    max-width: 100vw;
-    height: 100%;
-    object-fit: cover;
-}
-
-.buttons{
-    position: absolute;
-    top: 45%;
-    left: 5%;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.buttons button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #fff5;
-    color: #fff;
-    border: none;
-    font-family: monospace;
-    font-weight: bold;
-}
-
-.dots{
-    position: absolute;
-    bottom: 10px;
-    color: #fff;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.dots li{
-    list-style: none;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 20px;
-    transition: 1s;
-}
-
-.dots li.active{
-    width: 30px;
-}
-
-/*Parte izquierda informacion*/
-.izquierdo .info{
-    position: relative;
-    width: 100%;
-    height: 35%;
-    background: #dadada;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/*Parte derecha*/
-main .derecho{
-    position: absolute;
-    margin-right: 20px;
     right: 0;
-    width: 22.5%;
-    height: 100%;
-    border-radius: 10px;
-    padding: 20px;
-    background: blueviolet;
+    background: linear-gradient(to right, rgb(255,255,255),30%, transparent);
+    z-index: 1;
 }
 
-.derecho img{
+.inicio .gradient img{
     position: relative;
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 25px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
+.slider-frame{
+    position: absolute;
+    width: 34%;
+    height: 245px;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 10px;
+}
 
-/*Footer*/
+.slider-frame ul{
+    display: flex;
+    padding: 0;
+    width: 400%;
+}
+
+.slider-frame li{
+    list-style: none;
+    width: 100%;
+}
+
+.slider-frame img{
+    width: 100%;
+    animation: slide 16s infinite alternate ease-in-out;
+}
+
+@keyframes slide {
+    0%{margin-left: 0%;}
+    20%{margin-left: 0%;}
+
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+    75%{margin-left: -300%;}
+    95%{margin-left: -300%;}
+}
+
+.s-cursos{
+    position: relative;
+    width: 95%;
+    left: 2.5%;
+    margin-top: 120px;
+    background: #fff;
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.s-cursos .cursos{
+    position: absolute;
+    width: 18%;
+    height: 90%;
+    background: #dadada;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s ease;
+}
+
+.s-cursos .cursos:hover{
+    transform: scale(1.1);
+}
+
+.s-cursos .cursos img{
+    position: relative;
+    height: 60%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    left: -10%;
+}
+
+.s-cursos .cursos p{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.s-cursos .cursos i{
+    position: relative;
+    left: 40%;
+    font-size: 50px;
+    top: 20px;
+}
+
+.s-cursos #culturales{
+    position: absolute;
+    right: 41%;
+}
+
+.s-cursos #academicos{
+    position: absolute;
+    right: 21.5%;
+}
+
+.s-cursos #verano{
+    position: absolute;
+    right: 2%;
+}
+
+.info{
+    position: relative;
+    margin-top: 20px;
+    background:  white;
+    width: 95%;
+    height: 300px;
+    left: 2.5%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.info label{
+    position: absolute;
+    font-size: 40px;
+    height: auto;
+    width: auto;
+}
+
+.info div{
+    position: absolute;
+    width: 55%;
+    height: auto;
+    top: 150px;
+}
+
+.info img{
+    position: absolute;
+    height: 110%;
+    right: -50px;
+    top: -20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
 
 .footer{
     position: relative;
-    top: 120px;
     width: 100%;
     height: 100px;
     background: #1d2951;
