@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/casa_lila/html/css/inicio.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Home</title>
+    <title>Casa Lila</title>
 </head>
 <body>
     <!--Barra de navegacion superior-->
@@ -22,9 +22,9 @@
 
         <!--Condiciones para abrir las variables get mediante la URL-->
 
-        <?php if(isset($_GET["paginas"])): ?>
+        <?php if(isset($_GET["pagina"])): ?>
 
-        <?php if($_GET["paginas"] == "login"): ?>
+        <?php if($_GET["pagina"] == "login"): ?>
             <a href="index.php?pagina=login">Inicia Sesion</a>
         <?php else: ?>
             <a href="index.php?pagina=login">Inicia Sesion</a>
@@ -32,32 +32,33 @@
 
         <!------------------------------------------------------------>
 
-        <?php if($_GET["paginas"] == "culturales"): ?>
-            <a href="index.php?pagina=culturales">Cursos culturales</a>
+        <?php if($_GET["pagina"] == "culturales"): ?>
+            <a href="index.php?pagina=culturales">Cursos Culturales</a>
         <?php else: ?>
-            <a href="index.php?pagina=culturales">Cursos culturales</a>
+            <a href="index.php?pagina=culturales">Cursos Culturales</a>
         <?php endif ?>
 
         <!--=================================================================-->
 
-        <?php if($_GET["paginas"] == "academicos"): ?>
-                    <a href="index.php?pagina=academicos">Cursos academicos</a>
-                <?php else: ?>
-                    <a href="index.php?pagina=academicos">Cursos academicos</a>
-                <?php endif ?>
+        <?php if($_GET["pagina"] == "academicos"): ?>
+            <a href="index.php?pagina=academicos">Cursos Academicos</a>
+        <?php else: ?>
+            <a href="index.php?pagina=academicos">Cursos Academicos</a>
+        <?php endif ?>
 
         <!--=================================================================-->
 
-        <?php if($_GET["paginas"] == "verano"): ?>
-                    <a href="index.php?pagina=verano">Cursos de verano</a>
-                <?php else: ?>
-                    <a href="index.php?pagina=verano">Cursos de verano</a>
-                <?php endif ?>
+        <?php if($_GET["pagina"] == "verano"): ?>
+            <a href="index.php?pagina=verano">Cursos de Verano</a>
+        <?php else: ?>
+            <a href="index.php?pagina=verano">Cursos de Verano</a>
+        <?php endif ?>
 
         <!--=================================================================-->
-
 
         <?php else: ?>
+
+        <!--=================================================================-->
 
         <nav class="navbar">
             <a href="index.php?pagina=login">Inicia sesión</a>
@@ -109,9 +110,9 @@
             <!--La imagen promocional o demostrativa-->
             <img src="https://www.diariomotor.com/imagenes/2023/03/f40-liberty-walk-641212ae4033f.jpg" alt="">
             <!--El texto que va dentro del mismo-->
-            <h2>Cursos culturales</h2>
+            <h2>Cursos Culturales</h2>
             <p>¿Te interesa el arte? Encuentra actividades que ayuden a tu desarrollo artístico y diviertete aprendiendo.</p>
-            <a href="">Saber más</a>
+            <a href="index.php?pagina=culturales">Saber más</a>
         </div>
 
         <!--Contenedor de una de los apartados-->
@@ -119,18 +120,18 @@
             <!--La imagen promocional o demostrativa-->
             <img src="https://w0.peakpx.com/wallpaper/602/447/HD-wallpaper-ferrari-f40-back-view-aldix-racing-tuning-ferrari-f40-lm-supercars-white-f40-italian-cars-ferrari.jpg" alt="">
             <!--El texto que va dentro del mismo-->
-            <h2>Cursos academicos</h2>
+            <h2>Cursos Academicos</h2>
             <p>Dí adiós a las dificultades y el aburrimiento, estudiar no debe ser tedioso, sino entretenido.</p>
-            <a href="">Saber más</a>
+            <a href="index.php?pagina=academicos">Saber más</a>
         </div>
 
 
         <!--Contenedor de una de los apartados-->
         <div class="cursos" id="verano">
             <img src="https://www.diariomotor.com/imagenes/2023/03/f40-liberty-walk-641212ae4033f.jpg" alt="">
-            <h2>Cursos de verano</h2>
+            <h2>Cursos de Verano</h2>
             <p>¿Demasiado tiempo libre en vacaciones? Aprovéchalo y aprende algo nuevo.</p>
-            <a href="">Saber más</a>
+            <a href="index.php?pagina=verano">Saber más</a>
         </div>
 
         <div class="slider-frame">

@@ -25,37 +25,37 @@
 *carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
 =====================================================================================-->
 
-        <?php if(isset($_GET["paginas"])):?>
+    <?php if(isset($_GET["Paginas"])): ?>
 
-        <?php if($_GET["paginas"] == "login"): ?>
-            <a href="index.php?pagina=login">Inicia Sesion</a>
-        <?php else: ?>
-            <a href="index.php?pagina=login">Inicia Sesion</a>
-        <?php endif ?>
-
-<!--=================================================================-->
-
-        <?php if($_GET["paginas"] == "Inicio"): ?>
-            <a href="index.php?pagina=Inicio">Inicio</a>
-        <?php else: ?>
-            <a href="index.php?pagina=Inicio">Inicio</a>
-        <?php endif ?>
+    <?php if($_GET["Paginas"] == "inicio"): ?>
+        <a href="index.php?Pagina=inicio">Inicio</a>
+    <?php else: ?>
+        <a href="index.php?Pagina=inicio">Inicio</a>
+    <?php endif ?>
 
 <!--=================================================================-->
 
-        <?php else: ?>
+    <?php if($_GET["Paginas"] == "login"): ?>
+        <a href="index.php?Pagina=login">Iniciar Sesison</a>
+    <?php else: ?>
+        <a href="index.php?Pagina=login">Iniciar Sesion</a>
+    <?php endif ?>
 
 <!--=================================================================-->
 
-            <nav class="navbar">
-                <a href="index.php?pagina=inicio">Inicio</a>
-                <a href="index.php?pagina=login">Inicia sesion</a>
-            </nav>
+    <?php else: ?>
 
 <!--=================================================================-->
 
-        <?php endif ?>
-    
+    <nav class="navbar">
+        <a href="index.php?Pagina=inicio">Inicio</a>
+        <a href="index.php?pagina=login">Inicia sesion</a>
+    </nav>
+
+<!--=================================================================-->
+
+    <?php endif ?>
+
 <!--=================================================================-->
        
 

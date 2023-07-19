@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/casa_lila/html/css/verano.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/verano.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>Cursos de Verano</title>
 </head>
 <body>
 
     <!--Barra de navegacion-->
     <header class="header">
-        <label for="btn_menu" class="menu"><i class='bx bx-menu' ></i></label>
+        <!--Menú-->
+        <label for="btn_menu" class="menu"><i class='bx bx-menu'></i></label>
 
+        <!--Barra de busqueda-->
         <form action="#" class="search-bar">
             <input type="text" placeholder="Buscar...">
             <button type="submit"><i class='bx bx-search'></i></button>
@@ -25,20 +27,20 @@
 *carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
 =====================================================================================-->
 
-    <?php if(isset($_GET["paginas"])):?>
+<?php if(isset($_GET["Paginas"])): ?>
 
-    <?php if($_GET["paginas"] == "login"): ?>
-        <a href="index.php?pagina=login">Inicia Sesion</a>
+    <?php if($_GET["Paginas"] == "inicio"): ?>
+        <a href="index.php?Pagina=inicio">Inicio</a>
     <?php else: ?>
-        <a href="index.php?pagina=login">Inicia Sesion</a>
+        <a href="index.php?Pagina=inicio">Inicio</a>
     <?php endif ?>
 
 <!--=================================================================-->
 
-    <?php if($_GET["paginas"] == "inicio"): ?>
-        <a href="index.php?pagina=inicio">Inicio</a>
+    <?php if($_GET["Paginas"] == "login"): ?>
+        <a href="index.php?Pagina=login">Iniciar Sesison</a>
     <?php else: ?>
-        <a href="index.php?pagina=inicio">Inicio</a>
+        <a href="index.php?Pagina=login">Iniciar Sesion</a>
     <?php endif ?>
 
 <!--=================================================================-->
@@ -48,7 +50,7 @@
 <!--=================================================================-->
 
     <nav class="navbar">
-        <a href="index.php?pagina=inicio">Inicio</a>
+        <a href="index.php?Pagina=inicio">Inicio</a>
         <a href="index.php?pagina=login">Inicia sesion</a>
     </nav>
 
@@ -58,7 +60,20 @@
 
 <!--=================================================================-->
 
-    <a href="" class="perfil"><i class='bx bxs-user-circle' ></i></a>
+    <!--Icono perfil y opciones desplegables-->
+    <div class="opciones-perfil">
+            <label for="btn-perfil" class="perfil"><i class='bx bxs-user-circle'></i></label>
+            <input type="checkbox" id="btn-perfil">
+
+            <!--Opciones-->
+            <div class="opciones">
+                <nav>
+                    <a href="">Perfil</a>
+                    <a href="">Mis cursos</a>
+                    <a href="">Cerrar sesión</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <!--Menu lateral-->
@@ -66,12 +81,12 @@
     <div class="container_menu">
         <div class="cont_menu">
             <nav>
-                <a href="#">Puto Terry</a>
-                <a href="#">Bastardo</a>
-                <a href="#">De mierda</a>
-                <a href="#">Me caes de la vrga</a>
-                <a href="#">Eres un pendejo</a>
-                <a href="#">Me la pelas</a>
+                <a href="#">Opciones</a>
+                <a href="#">Opciones</a>
+                <a href="#">Opciones</a>
+                <a href="#">Opciones</a>
+                <a href="#">Opciones</a>
+                <a href="#">Opciones</a>
             </nav>
             <label for="btn_menu" class="icon_equis"><i class='bx bx-x'></i></label>
         </div>
@@ -79,60 +94,141 @@
 
     <!--Central-->
     <main>
-        <section class="izquierdo">
-            <h1 class="titulo">Cursos de verano</h1>
+        <!--Seccion superior de bienvenida-->
+        <section class="superior">
+            <!--Fondo-->
+            <div class="background"></div>
 
-            <div class="slider">
-                <div class="list">
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/133/969/139/artwork-nature-landscape-fantasy-art-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/30/586/460/artwork-fantasy-art-digital-art-forest-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/990/547/605/digital-art-futuristic-city-car-artwork-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/626/913/146/cyberpunk-skyscraper-upside-down-animated-movies-wallpaper-preview.jpg">
-                    </div>
-                </div>
-        
-                <!--Botones prev y next-->
-        
-                <div class="buttons">
-                    <button id="prev"><</button>
-                    <button id="next">></button>
-                </div>
-        
-                <!--Dots o puntos... (if 5 items => 5 dots)-->
-        
-                <ul class="dots">
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-
+            <!--Informacion-->
             <div class="info">
-                <h3>Informacion del curso</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum labore numquam excepturi repellendus voluptatem veniam corporis illum rerum autem perferendis blanditiis sed vitae est quibusdam eum possimus asperiores, cupiditate sapiente.</p>
+                <h1>Cursos de Verano</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum vel tempora, mollitia ut error cum
+                    tenetur nisi obcaecati voluptate alias.</p>
             </div>
+
+            <!--Imagen-->
+            <div class="img"></div>
         </section>
 
-        <section class="derecho">
-            <div class="superior">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo facere repellat fugit nam distinctio sint veritatis error nulla. Adipisci quae saepe aut dignissimos! Quis, delectus reiciendis facere alias soluta eos.</p>
-                <img src="" alt="">
+        <!--Seccion media: texto e imagen grandes-->
+        <section class="medio">
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum odit ipsa optio quae! Sint placeat
+                    voluptatum delectus, a unde alias in reprehenderit voluptatibus magni illum quia voluptates saepe
+                    suscipit expedita.</p>
             </div>
-            <div class="inferior">
-                <img src="https://e1.pxfuel.com/desktop-wallpaper/873/51/desktop-wallpaper-nissan-s15-silvia-fast-and-furious-nissan-silvia.jpg" alt="">
+
+            <div id="imagen"></div>
+        </section>
+
+        <!--Seccion inferior: pestañas de informacion-->
+        <section class="inferior">
+
+            <!--Div que contiene todo-->
+            <div class="info-cursos">
+
+                <!--Div de las pestañas-->
+                <div class="tab_box">
+                    <button class="tab_btn active">Ludicos</button>
+                    <button class="tab_btn">Culturales</button>
+                    <button class="tab_btn">Academicos</button>
+                    <button class="tab_btn">Eventos</button>
+
+                    <!--Linea que se mueve-->
+                    <div class="line"></div>
+                </div>
+
+                <!--Div del contenido-->
+                <div class="content_box">
+
+                    <!--Contenido 1-->
+                    <div class="content active">
+
+                        <!--Div contiene info e imagen-->
+                        <div class="informacion">
+                            <div> <!--Solo informacion-->
+                                <h2>Ludicos</h2>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione totam ipsum,
+                                    pariatur sit
+                                    rem qui nisi blanditiis, alias non, cum illo porro. At voluptatem cum deleniti, a
+                                    consequuntur incidunt inventore?</p>
+                            </div>
+                            <div id="c1" class="imgn"></div>
+                        </div>
+                    </div>
+
+                    <!--Contenido 2-->
+                    <div class="content">
+
+                        <!--Div contiene info e imagen-->
+                        <div class="informacion">
+                            <div> <!--Solo informacion-->
+                                <h2>Culturales</h2>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione totam ipsum,
+                                    pariatur sit
+                                    rem qui nisi blanditiis, alias non, cum illo porro. At voluptatem cum deleniti, a
+                                    consequuntur incidunt inventore?</p>
+                            </div>
+                            <div id="c2" class="imgn"></div>
+                        </div>
+                    </div>
+
+                    <!--Contenido 3-->
+                    <div class="content">
+
+                        <!--Div contiene info e imagen-->
+                        <div class="informacion">
+                            <div><!--Solo informacion-->
+                                <h2>Academicos</h2>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione totam ipsum,
+                                    pariatur sit
+                                    rem qui nisi blanditiis, alias non, cum illo porro. At voluptatem cum deleniti, a
+                                    consequuntur incidunt inventore?</p>
+                            </div>
+                            <div id="c3" class="imgn"></div>
+                        </div>
+                    </div>
+
+                    <!--Contenido 4-->
+                    <div class="content">
+
+                        <!--Div contiene info e imagen-->
+                        <div class="informacion">
+                            <div><!--Solo informacion-->
+                                <h2>Eventos</h2>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione totam ipsum,
+                                    pariatur sit
+                                    rem qui nisi blanditiis, alias non, cum illo porro. At voluptatem cum deleniti, a
+                                    consequuntur incidunt inventore?</p>
+                            </div>
+                            <div id="c4" class="imgn"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!--Script de las pestañas-->
+
+            <!--Cuando se selecciona una pestaña, se le agrega la clase 'active', y se le quita la misma clase a la pestaña
+            seleccionada anteriormente con su respectivo contenido, todas las animaciones van para la clase 'active'-->
+            <script>
+                const tabs = document.querySelectorAll('.tab_btn');
+                const all_content = document.querySelectorAll('.content');
+
+                tabs.forEach((tab, index) => {
+                    tab.addEventListener('click', (e) => {
+                        tabs.forEach(tab => { tab.classList.remove('active') });
+                        tab.classList.add('active');
+
+                        var line = document.querySelector('.line');
+                        line.style.width = e.target.offsetWidth + "px";
+                        line.style.left = e.target.offsetLeft + "px";
+
+                        all_content.forEach(content => { content.classList.remove('active') });
+                        all_content[index].classList.add('active');
+                    })
+                })
+            </script>
         </section>
     </main>
 
@@ -141,7 +237,9 @@
     <footer class="footer">
         <div class="contacto">
             <ul>
-                <li><h2>Contacto</h2></li>
+                <li>
+                    <h2>Contacto</h2>
+                </li>
                 <li>
                     <div class="c_electronico">
                         <label for="">Correo Electronico</label><br>
@@ -160,13 +258,12 @@
                     <div class="sociales">
                         <a href=""><i class='bx bxl-facebook-circle'></i></a>
                         <a href=""><i class='bx bxl-instagram'></i></a>
-                        <a href=""><i class='bx bxl-twitter' ></i></a>
+                        <a href=""><i class='bx bxl-twitter'></i></a>
                     </div>
                 </li>
             </ul>
         </div>
     </footer>
-
-    <script src="http://localhost/casa_lila/html/js/verano.js"></script>
 </body>
+
 </html>
