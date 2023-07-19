@@ -29,9 +29,11 @@ class modelLogin{
     //FALTARIA EL DE APELLIDOS
     static public function mdlRegistro($tabla, $datosLoginRegistro){
 
-        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (nombre, email, password) VALUES (:nombre, :email, :password)");
-    
+        $stmt = conexion::conectar()->prepare("INSERT INTO $tabla (token, nombre, apellidos, email, password) VALUES (:token, :nombre, :apellidos, :email, :password)");
+
+        $stmt->bindParam(":token", $datosLoginRegistro["token"], PDO::PARAM_STR);
         $stmt->bindParam(":nombre", $datosLoginRegistro["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":apellidos", $datosLoginRegistro["apellidos"], PDO::PARAM_STR);
         $stmt->bindParam(":email", $datosLoginRegistro["email"], PDO::PARAM_STR);
         $stmt->bindParam(":password", $datosLoginRegistro["password"], PDO::PARAM_STR);
 

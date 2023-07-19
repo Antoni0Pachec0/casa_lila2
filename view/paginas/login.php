@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -15,11 +15,11 @@
     *carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
     =====================================================================================-->
 
-    <?php if(isset($_GET["Paginas"])): ?>
-    <?php if($_GET["Paginas"] == "Inicio"): ?>
-        <a href="Index.php?Pagina=Inicio">Home</a>
+    <?php if(isset($_GET["paginas"])): ?>
+    <?php if($_GET["pagina"] == "inicio"): ?>
+        <a href="index.php?pagina=inicio">Home</a>
     <?php else: ?>
-        <a href="Index.php?Pagina=Inicio">Home</a>
+        <a href="index.php?pagina=inicio">Home</a>
     <?php endif ?>
 
     <!--=================================================================-->
@@ -30,7 +30,7 @@
 
     <header class="header">
         <nav class="navbar">
-            <a href="Index.php?Pagina=Inicio">Home</a>
+            <a href="index.php?pagina=inicio">Home</a>
             <a href="#">Nosotros</a>
             <a href="#">Servicios</a>
             <a href="#">Contacto</a>
@@ -42,7 +42,7 @@
         
 <!--=================================================================-->
 
-<form action="#" class="search-bar">
+<form action="login.php" method="POST" class="search-bar">
             <input type="text" placeholder="Buscar...">
             <button type="submit"><i class='bx bx-search'></i></button>
         </form>
@@ -76,13 +76,13 @@
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="email" required>
+                        <input type="email" name="loginSesionEmail" required>
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="contraseña" required>
+                        <input type="password" name="loginSesionPassword" required>
                         <label>Contraseña</label>
                     </div>
 
@@ -100,34 +100,34 @@
             </div>
 
             <div class="form-box register">
-                <form action="">
+                <form action="" method="POST">
                     <h2>Registrate</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-user'></i></i></span>
-                        <input type="text" name="nombre" required>
+                        <input type="text" name="loginRegistroNombre" required>
                         <label>Nombre</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-user'></i></i></span>
-                        <input type="text" name="apellido" required>
+                        <input type="text" name="loginRegistroApellidos" required>
                         <label>Apellidos</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="email" required>
+                        <input type="email" name="loginRegistroEmail" required>
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="contraseña" required>
+                        <input type="password" name="loginRegistroPassword" required>
                         <label>Contraseña</label>
                     </div>
 
-                    <button type="submit" class="btn" name="register">Registrarme</button>
+                    <button type="submit" class="btn" name="btnLoginRegistro">Registrarme</button>
 
                     <div class="login-register">
                         <p>Ya tiene una cuenta? <a href="#" class="login-link">Inicia sesión</a></p>
@@ -145,7 +145,6 @@
     $registro = controladorLogin::ctrRegistro();
 
     if($registro == "ok"){
-
         echo '
         <script>
   
@@ -157,8 +156,23 @@
         </script>
         ';
   
-        echo'<h1>El usuario se ha registrado exitosamente</h1>';
-        }
+        echo'<div>El usuario se ha registrado exitosamente</div>';
+      }
+
+      if($registro == "error"){
+        echo '
+        <script>
+  
+          if(window.history.replaceState){
+            
+              window.history.replaceState(null, null, window.location.href);
+          }
+  
+        </script>
+        ';
+  
+        echo'<div>Error: No se permiten caracteres especiales</div>';
+      }
 
     ?>
 
