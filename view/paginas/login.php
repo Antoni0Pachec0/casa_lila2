@@ -42,14 +42,16 @@
         
 <!--=================================================================-->
 
-        <form action="#" class="search-bar">
+<form action="#" class="search-bar">
             <input type="text" placeholder="Buscar...">
             <button type="submit"><i class='bx bx-search'></i></button>
         </form>
     </header>
 
     <div class="background"></div>
+
     <div class="container">
+        <div id="difuser"></div>
         <div class="content">
             <h2 class="logo"><i class='bx bxl-xing'></i>Casa Lila</h2>
 
@@ -69,18 +71,18 @@
 
         <div class="logreg-box">
             <div class="form-box login">
-                <form action="validar.php" method="POST">
+                <form action="">
                     <h2>Inicia sesión</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="loginEmail">
+                        <input type="email" name="email" required>
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="loginPassword" required>
+                        <input type="password" name="contraseña" required>
                         <label>Contraseña</label>
                     </div>
 
@@ -94,49 +96,48 @@
                     <div class="login-register">
                         <p>No tiene una cuenta? <a href="#" class="register-link">Cree una</a></p>
                     </div>
-
-                    <div class="bad">
-                        <label id=>Usuario o contraseña incorrectos</label>
-                    </div>
                 </form>
             </div>
 
             <div class="form-box register">
-                <form method="POST">
+                <form action="">
                     <h2>Registrate</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-user'></i></i></span>
-                        <input type="text" name="loginRegistroNombre" required>
+                        <input type="text" name="nombre" required>
                         <label>Nombre</label>
                     </div>
 
                     <div class="input-box">
+                        <span class="icon"><i class='bx bxs-user'></i></i></span>
+                        <input type="text" name="apellido" required>
+                        <label>Apellidos</label>
+                    </div>
+
+                    <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="loginRegistroEmail" required>
+                        <input type="email" name="email" required>
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="loginRegistroPassword" required>
+                        <input type="password" name="contraseña" required>
                         <label>Contraseña</label>
                     </div>
 
-                    <div class="remember-forgot">
-                        <label><input type="checkbox"> Acepto los terminos y condiciones</label>
-                        
-                    </div>
-
-                    <button type="submit" class="btn" name="btnLoginRegistro">Registrarme</button>
+                    <button type="submit" class="btn" name="register">Registrarme</button>
 
                     <div class="login-register">
                         <p>Ya tiene una cuenta? <a href="#" class="login-link">Inicia sesión</a></p>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
+
     <script src="http://localhost/casa_lila/html/js/login.js"></script>
 
     <?php
