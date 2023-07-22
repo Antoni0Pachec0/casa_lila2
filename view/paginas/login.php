@@ -71,7 +71,7 @@
 
         <div class="logreg-box">
             <div class="form-box login">
-                <form action="">
+                <form action="" method="POST">
                     <h2>Inicia sesión</h2>
 
                     <div class="input-box">
@@ -98,6 +98,13 @@
                     </div>
                 </form>
             </div>
+
+            <?php
+            $ingreso = new controladorLogin();
+            $ingreso -> ctrIniciarSesion();
+            ?>
+
+
 
             <div class="form-box register">
                 <form action="" method="POST">
