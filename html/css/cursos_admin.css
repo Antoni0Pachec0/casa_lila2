@@ -446,6 +446,77 @@ main{
     }
 }
 
+main nav{
+    position: fixed;
+    right: 0;
+    width: 80px; 
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+}
+
+main nav .nav-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+}
+
+main nav .nav-content .toggle-btn,
+main nav .nav-content span a{
+    height: 60px;
+    width: 60px;
+    background: var(--colorBotones);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+main nav .nav-content .toggle-btn{
+    font-size: 30px;
+    z-index: 100;
+    cursor: pointer;
+    transform: rotate(-225deg);
+    transition: all .3s ease;
+    color: var(--colorTextosClaro);
+}
+
+main nav.open .toggle-btn{
+    transform: rotate(0);
+}
+
+main nav .nav-content span{
+    position: absolute;
+    transition: all .3s ease;
+    opacity: 0;
+}
+
+main nav.open .nav-content span{
+    transform: rotate(calc(var(--i) * (360deg/8))) translateY(120px);
+    opacity: 1;
+}
+
+main nav .nav-content span a{
+    text-decoration: none;
+    transform: rotate(-45deg);
+}
+
+main nav .nav-content span a i{
+    font-size: 30px;
+    color: var(--colorTextosClaro);
+    transform: rotate(calc(var(--i) * (360deg/-8)));
+    opacity: 0.8;
+    transition: .2s ease;
+}
+
+main nav .nav-content span a:hover i{
+    opacity: 1;
+}
+
 /* ----- FOOTER ----- */
 
 .footer{
