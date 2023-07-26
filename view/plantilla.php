@@ -42,12 +42,21 @@
                 #Lista blnaca para la pagina de error
                 
             }
+        }else if(isset($_GET["subPagina"])){
+            if($_GET["subPagina"]== "verificarEmail"){
+                
+            #Se uncluye toda la carpeta dependiendo que traiga la variable GET con la carpeta paginas
+                #==:inicio.php==
+                include "subPaginas/".$_GET["subPagina"].".php";
+            }else{
+                #Lista blnaca para la pagina de error
+                
+            }
         }else{
             #Modularizar
             #Se estandariza que sea la pagina principal
             include "paginas/inicio.php";
         }
         ?>
-
 </body>
 </html>

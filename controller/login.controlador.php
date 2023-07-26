@@ -53,7 +53,8 @@ class controladorLogin{
             if (is_array($respuesta) && $respuesta["email"] == $_POST["loginSesionEmail"] && $respuesta["password"] == $_POST["loginSesionPassword"]){
 
                 $_SESSION["usuarioIngresado"] = "ok";
-
+//===================================================================================
+//CAMBIARA LA DIRECCION DEL WINDOW LOCATION, AL NOMBRE DE LA CARPETA DE CASALILA2 
                 echo '
                 <script>
 
@@ -62,7 +63,7 @@ class controladorLogin{
                         window.history.replaceState(null, null, window.location.href);
                     }
 
-                    window.location = "index.php?pagina=inicio";
+                    window.location = "http://localhost/casa_lila2/";
 
                 </script>
                 ';

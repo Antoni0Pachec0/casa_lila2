@@ -10,10 +10,10 @@
 </head>
 <body>
 
-    <!--====================================================================================
-    *Condiciones para abrir las variables GET mediante la URL se condiciona si la 
-    *carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
-    =====================================================================================-->
+<!--====================================================================================
+*Condiciones para abrir las variables GET mediante la URL se condiciona si la 
+*carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
+=====================================================================================-->
 
     <?php if(isset($_GET["paginas"])): ?>
     <?php if($_GET["pagina"] == "inicio"): ?>
@@ -22,11 +22,11 @@
         <a href="index.php?pagina=inicio">Home</a>
     <?php endif ?>
 
-    <!--=================================================================-->
+<!--=================================================================-->
 
     <?php else: ?>
 
-    <!--=================================================================-->
+<!--=================================================================-->
 
     <header class="header">
         <nav class="navbar">
@@ -40,6 +40,19 @@
 
         <?php endif ?>
         
+<!--=================================================================-->
+
+    <?php if(isset($_GET["subPaginas"])): ?>
+        <?php if($_GET["subPagina"] == "verificarEmail"): ?>
+            <a href="index.php?subPagina=verificarEmail">¿Olvidaste tu contraseña?</a>
+        <?php else: ?>
+            <a href="index.php?subPagina=verificarEmail">¿Olvidaste tu contraseña?</a>
+        <?php endif ?>
+
+<!--=================================================================-->
+
+    <?php else: ?>
+
 <!--=================================================================-->
 
 <form action="login.php" method="POST" class="search-bar">
@@ -88,16 +101,22 @@
 
                     <div class="remember-forgot">
                         <label><input type="checkbox"> Recuerdame</label>
-                        <a href="#">Olvidaste tu contraseña?</a>
+                        <a href="index.php?subPagina=verificarEmail">¿Olvidaste tu contraseña?</a>
                     </div>
 
                     <button type="submit" class="btn">Iniciar sesión</button>
 
                     <div class="login-register">
-                        <p>No tiene una cuenta? <a href="#" class="register-link">Cree una</a></p>
+                        <p>¿No tiene una cuenta? <a href="#" class="register-link">Cree una</a></p>
                     </div>
                 </form>
             </div>
+
+            <!--=================================================================-->
+
+            <?php endif ?>
+        
+            <!--=================================================================-->
 
             <?php
             $ingreso = new controladorLogin();
