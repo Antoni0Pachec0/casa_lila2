@@ -4,17 +4,18 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/verificar_email.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Cambiar Contraseña</title>
 </head>
 <body>
     
-    <div class="logreg-box">
-        <div class="form-box login">
+    <div class="container">
+        <div class="form-box">
 
             <form action="" method="POST">
-                <h2>Ingresa Tu Email</h2>
+                <h2>Recuperar contraseña</h2>
+                <h4>Ingresa Tu Email</h4>
 
                 <div class="input-box">
                     <span class="icon"><i class='bx bxs-envelope'></i></span>
