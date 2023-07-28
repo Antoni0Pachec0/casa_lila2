@@ -153,31 +153,50 @@ body{
 
 .opciones{
     position: absolute;
-    width: 150px;
-    height: auto;
+    width: 170px;
     right: 0;
-    background: var(--colorFondos);
     top: 70px;
-    visibility: hidden;
-    transform: translateX(100%);
+    z-index: -100;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: .2s ease-in-out;
+    border-bottom-left-radius: 4px;
+    overflow: hidden;
+    border-top: 2px solid #0b0b0b;
+}
+
+.opciones nav{
+    background: #fff;
+}
+
+.opciones nav .opcion{
+    display: flex;
+    height: 45px;
+    align-items: center;
+    border-left: 4px solid rgba(80, 53, 89, 0);
     transition: .2s ease-in-out;
 }
 
-#btn-perfil:checked ~ .opciones{
-    visibility: visible;
-    transform: translateX(0%);
-}
-
-.opciones a{
-    display: block;
-    height: 50px;
-    padding: 10px;
+.opciones nav .opcion a{
+    display: flex;
     text-decoration: none;
     color: #0b0b0b;
+    margin-left: 10px;
 }
 
-.opciones a:hover{
-    background: #cca9dd;
+.opciones nav .opcion i{
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.opciones .opcion:hover{
+    background: var(--colorFondos);
+    border-left: 4px solid rgba(80, 53, 89, 1);
+}
+
+#btn-perfil:checked ~ .opciones{
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .search-bar{

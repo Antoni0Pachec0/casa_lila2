@@ -81,6 +81,7 @@ body{
         font-weight: 500;
         pointer-events: none;
         transition: .5s ease;
+        background: none;
     }
     
     .input-box input:focus~label, .input-box input:valid~label{
