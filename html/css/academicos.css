@@ -15,7 +15,7 @@
 }
 
 body{
-    background: #fff;
+    background: #e4e4e4;
 }
 
 /*Barra de navegacion*/
@@ -168,16 +168,52 @@ body{
     transform: translateX(0%);
 }
 
-.opciones a{
-    display: block;
-    height: 50px;
-    padding: 10px;
-    text-decoration: none;
-    color: #0b0b0b;
+.opciones{
+    position: absolute;
+    width: 170px;
+    right: 0;
+    top: 70px;
+    z-index: -100;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: .2s ease-in-out;
+    border-bottom-left-radius: 4px;
+    overflow: hidden;
+    border-top: 2px solid #0b0b0b;
 }
 
-.opciones a:hover{
-    background: #cca9dd;
+.opciones nav{
+    background: #fff;
+}
+
+.opciones nav .opcion{
+    display: flex;
+    height: 45px;
+    align-items: center;
+    border-left: 4px solid rgba(80, 53, 89, 0);
+    transition: .2s ease-in-out;
+}
+
+.opciones nav .opcion a{
+    display: flex;
+    text-decoration: none;
+    color: #0b0b0b;
+    margin-left: 10px;
+}
+
+.opciones nav .opcion i{
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.opciones .opcion:hover{
+    background: var(--colorFondos);
+    border-left: 4px solid rgba(80, 53, 89, 1);
+}
+
+#btn-perfil:checked ~ .opciones{
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .search-bar{
@@ -231,240 +267,119 @@ body{
 
 /*Contenido central*/
 
-main{
+.contenido{
     position: relative;
+    width: 100%;
+    height: auto;
     top: 70px;
-    width: 100%;
 }
 
-main #intro{
-    width: 100%;
-    height: 85vh;
-    background: #1c1c1c;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-main #intro #background{
-    width: 100%;
-    height: 100%;
-    background: url('https://as1.ftcdn.net/v2/jpg/05/18/28/04/1000_F_518280449_gdlbKFezweLtgl2SmGvIBQr0ZpbyKgEc.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    opacity: .5;
-}
+.contenido{
+    .superior{
+        position: relative;
+        width: 100%;
+        height: 90vh;
+        background: url('https://static.vecteezy.com/system/resources/previews/007/168/305/non_2x/realistic-math-chalkboard-background-illustration-free-vector.jpg');
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-#intro .informacion{
-    width: 45%;
-    height: 50%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    left: 10%;
-    color: #fff;
-}
+    .superior{
+        .text{
+            width: 40%;
+            z-index: 1;
+            color: var(--colorTextosClaro);
+            
+        }
 
-.informacion h2{
-    font-size: 60px;
-    width: 95%;
-    font-weight: 500;
-}
+        .text h2{
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .text p{
+            font-size: 20px;
+        }
 
-.informacion p{
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    font-weight: 400;
-}
+        .img{
+            width: 35%;
+            height: 300px;
+            background: url('https://pymstatic.com/18793/conversions/frases-pitagoras-wide_webp.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            border-radius: 5px;
+        }
 
-#intro #img{
-    height: 50%;
-    width: 35%;
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    bottom: 0;
-    right: 10%;
-    margin: auto;
-    max-width: 45%;
-    border-radius: 5px;
-    box-shadow: #0b0b0b;
-    background: url('https://compass-ssl.xbox.com/assets/23/b6/23b6f32d-f359-43f3-a595-399cb019c603.jpg?n=DOOM-Eternal_GLP-Page-Hero-0_1083x609_02.jpg');
-    background-position: center;
-    background-size: cover;
-}
+        .difuser{
+            background: #0b0b0b;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: .4;
+        }
+    }
 
-/*Carrusel de imagenes*/
+    .medio{
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-main #carrusel{
-    width: 95%;
-    height: 500px;
-    position: relative;
-    left: 2.5%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+    .medio{
+        .cursos-box{
+            width: 75%;
+            height: auto;
+            display: block;
+            background: #fff;
+            padding: 25px;
+            padding-bottom: 0;
+            border-radius: 5px;
+        }
 
-#carrusel .slider{
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 100%;
-    width: 65%
-}
+        .cursos-box{
+            .curso{
+                width: 100%;
+                background: var(--colorFondos);
+                position: relative;
+                margin-bottom: 25px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 5px;
+                overflow: hidden;
+            }
 
-.slider{
-    width: 65%;
-    max-width: 100vw;
-    height: 100%;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-}
+            .curso{
+                .img{
+                    width: 25%;
+                    height: 150px;
+                    background: blue;
+                    overflow: hidden;
+                }
 
-.list{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    width: max-content;
-    transition: 1s;
-}
+                .info{
+                    position: relative;
+                    width: 70%;
+                }
 
-.list img{
-    width: 100%;
-    max-width: 100vw;
-    height: 100%;
-    object-fit: cover;
-}
-
-.buttons{
-    position: absolute;
-    top: 45%;
-    left: 5%;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.buttons button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #fff5;
-    color: #fff;
-    border: none;
-    font-family: monospace;
-    font-weight: bold;
-}
-
-.dots{
-    position: absolute;
-    bottom: 10px;
-    color: #fff;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.dots li{
-    list-style: none;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 20px;
-    transition: 1s;
-}
-
-.dots li.active{
-    width: 30px;
-}
-
-/*Seccion de informacion final*/
-
-main #info{
-    width: 85%;
-    height: 600px;
-    background: #fff;
-    position: relative;
-    padding: 20px;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-#info .izq{
-    width: 45%;
-    height: 92.5%;
-    background: transparent;
-    position: absolute;
-}
-
-.izq h2{
-    font-size: 30px;
-}
-
-.izq p{
-    width: 100%;
-    margin-top: 25px;
-    text-align: justify;
-}
-
-.izq img{
-    width: 60%;
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin: auto;
-    margin-top: 40px;
-}
-
-#info .linea{
-    position: absolute;
-    width: 3px;
-    height: 94%;
-    background: var(--colorBotones);
-    right: 0;
-    left: 0;
-    margin: auto;
-}
-
-#info .der{
-    width: 45%;
-    height: 92.5%;
-    background: transparent;
-    position: absolute;
-    right: 20px;
-}
-
-#info .der img{
-    width: 50%;
-}
-
-#info .der p{
-    position: relative;
-    margin-top: 50px;
-    text-align: justify;
-    
-}
-
-.der #img2{
-    position: absolute;
-    right: 0;
-    bottom: 0;
+                .info a{
+                    position: relative;
+                    font-size: 23px;
+                    text-decoration: none;
+                    color: var(--colorTextos);
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
 }
 
 /*Footer*/
