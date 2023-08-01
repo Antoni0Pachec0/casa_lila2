@@ -38,12 +38,11 @@
             #Se uncluye toda la carpeta dependiendo que traiga la variable GET con la carpeta paginas
                 #==:inicio.php==
                 include "paginas/".$_GET["pagina"].".php";
-            } else{
-                #Lista blnaca para la pagina de error
-                
-            }
+            } 
         }else if(isset($_GET["subPagina"])){
-            if($_GET["subPagina"]== "verificarEmail"){
+            if($_GET["subPagina"] == "verificarEmail" ||
+                $_GET["subPagina"] == "verificarCodigo" ||
+                $_GET["subPagina"] == "cambiarContraseña"){
                 
             #Se uncluye toda la carpeta dependiendo que traiga la variable GET con la carpeta paginas
                 #==:inicio.php==

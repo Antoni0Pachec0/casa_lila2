@@ -30,3 +30,4 @@ $Inicio = new ControladorPlantilla();
  * =====================================                                                                    =
  */
 $Inicio -> ctrTraerPlantilla();
+
