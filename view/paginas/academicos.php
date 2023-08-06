@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="http://localhost/casa_lila/html/css/academicos.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/academicos.css">
     <title>Cursos Academicos</title>
 </head>
 <body>
     <!--Barra de navegacion-->
     <header class="header">
-        <label for="btn_menu" class="menu"><i class='bx bx-menu' ></i></label>
 
         <form action="#" class="search-bar">
             <input type="text" placeholder="Buscar...">
@@ -48,7 +47,6 @@
 
     <nav class="navbar">
         <a href="index.php?Pagina=inicio">Inicio</a>
-        <a href="index.php?pagina=login">Inicia sesion</a>
     </nav>
 
 <!--=================================================================-->
@@ -57,94 +55,78 @@
 
 <!--=================================================================-->
     
+        <div class="opciones-perfil">
+            <label for="btn-perfil" class="perfil"><i class='bx bxs-user-circle' ></i></label>
+            <input type="checkbox" id="btn-perfil">
+            <div class="opciones">
+                <nav>
+                    <div class="opcion">
+                        <i class='bx bxs-user'></i>
+                        <a href="">Mi perfil</a>
+                    </div>
 
-        <a href="" class="perfil"><i class='bx bxs-user-circle' ></i></a>
+                    <div class="opcion">
+                        <i class='bx bxs-folder-open'></i>
+                        <a href="">Mis cursos</a>
+                    </div>
+
+                    <div class="opcion">
+                        <i class='bx bx-log-out' ></i>
+                        <a href="">Cerrar sesión</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <!--Menu lateral-->
-    <input type="checkbox" id="btn_menu">
-    <div class="container_menu">
-        <div class="cont_menu">
-            <nav>
-                <a href="#">Opciones</a>
-                <a href="#">Opciones</a>
-                <a href="#">Opciones</a>
-                <a href="#">Opciones</a>
-                <a href="#">Opciones</a>
-                <a href="#">Opciones</a>
-            </nav>
-            <label for="btn_menu" class="icon_equis"><i class='bx bx-x'></i></label>
-        </div>
-    </div>
 
     <!--Contenido-->
 
-    <main>
-        <section id="intro">
-            <div class="informacion">
-                <h2>Cursos academicos</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti deleniti impedit sequi dicta, ad aperiam!</p>
+    <main class="contenido">
+        <section class="superior">
+            <div class="text">
+                <h2>Cursos culturales</h2>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ab, perspiciatis magni sapiente vero consequuntur!</p>
             </div>
 
-            <img src="https://compass-ssl.xbox.com/assets/23/b6/23b6f32d-f359-43f3-a595-399cb019c603.jpg?n=DOOM-Eternal_GLP-Page-Hero-0_1083x609_02.jpg" alt="">
+            <div class="img"></div>
+
+            <div class="difuser"></div>
         </section>
 
-        <section id="carrusel">
-            <div class="slider">
-                <div class="list">
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/133/969/139/artwork-nature-landscape-fantasy-art-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/30/586/460/artwork-fantasy-art-digital-art-forest-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://images3.alphacoders.com/102/thumb-1920-1025036.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-preview.jpg">
-                    </div>
-                    <div class="item">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/626/913/146/cyberpunk-skyscraper-upside-down-animated-movies-wallpaper-preview.jpg">
+        <section class="medio">
+
+            <div class="cursos-box">
+
+                <div class="curso">
+                    <div class="img"></div>
+                    <div class="info">
+                        <a href="">Curso de ejemplo</a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit temporibus aliquid quaerat obcaecati facere.</p>
                     </div>
                 </div>
-        
-                <!--Botones prev y next-->
-        
-                <div class="buttons">
-                    <button id="prev"><</button>
-                    <button id="next">></button>
+
+                <div class="curso">
+                    <div class="img"></div>
+                    <div class="info">
+                        <a href="">Curso de ejemplo</a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit temporibus aliquid quaerat obcaecati facere.</p>
+                    </div>
                 </div>
-        
-                <!--Dots o puntos... (if 5 items => 5 dots)-->
-        
-                <ul class="dots">
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-        </section>
 
-        <section id="info">
-            <div class="izq">
-                <h2>Informacion adicional</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus repudiandae, at sit optio id neque. Dolorem ea culpa voluptatum quaerat nam. Ut architecto placeat quasi nostrum enim accusamus laudantium? Laborum.</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quos eius, impedit rem rerum deleniti distinctio, nisi voluptas libero obcaecati saepe quidem provident, vel dolorum.</p>
-                <img src="https://m.media-amazon.com/images/I/616igRPqlWL._AC_UF1000,1000_QL80_.jpg" alt="">
-            </div>
-
-            <div class="linea"></div>
-            
-            <div class="der">
-                <img src="https://img.remediosdigitales.com/f217a9/forzahorizon5-05-16x9_wm_festivalrace/1366_2000.jpg" alt="">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda cumque perferendis nulla in cupiditate, ut dolorem obcaecati aperiam, eveniet dicta adipisci dolor quo ipsum accusamus, eaque nihil. Laborum ad odio sunt ducimus, eligendi voluptatum earum!</p>
-                <img id="img2" src="https://img.remediosdigitales.com/0ceb5b/forza-horizon-5-mercedes-amg-one-1/1366_2000.jpeg" alt="">
+                <div class="curso">
+                    <div class="img"></div>
+                    <div class="info">
+                        <a href="">Curso de ejemplo</a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit temporibus aliquid quaerat obcaecati facere.</p>
+                    </div>
+                </div>
+                
             </div>
         </section>
     </main>
+
 
     <!--Footer-->
 

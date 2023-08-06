@@ -267,6 +267,18 @@ body{
     font-size: 19px;
 }
 
+.input-box .show-hide{
+    position: absolute;
+    top: 13px;
+    right: 25px;
+    font-size: 19px;
+    background: none;
+    border: none;
+    color: var(--colorTextosClaro);
+    font-size: 22px;
+    cursor: pointer;
+}
+
 .form-box .remember-forgot{
     font-size: 14.5px;
     font-weight: 500;

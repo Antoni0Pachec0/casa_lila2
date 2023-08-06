@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/casa_lila/html/css/inicio.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/inicio.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Casa Lila</title>
 </head>
 <body>
     <!--Barra de navegacion superior-->
     <header class="header">
-        <label for="btn_menu" class="menu"><i class='bx bx-menu' ></i></label>
 
         <form action="#" class="search-bar">
             <input type="text" placeholder="Buscar...">
@@ -19,6 +18,10 @@
         </form>
 
         <div class="logo"></div>
+
+        <nav class="navbar">
+            <a href="index.php?pagina=login">Inicia sesión</a>
+        </nav>
 
         <!--Condiciones para abrir las variables get mediante la URL-->
 
@@ -60,18 +63,26 @@
 
         <!--=================================================================-->
 
-        <nav class="navbar">
-            <a href="index.php?pagina=login">Inicia sesión</a>
-        </nav>
 
         <div class="opciones-perfil">
             <label for="btn-perfil" class="perfil"><i class='bx bxs-user-circle' ></i></label>
             <input type="checkbox" id="btn-perfil">
             <div class="opciones">
                 <nav>
-                    <a href="">Perfil</a>
-                    <a href="">Mis cursos</a>
-                    <a href="">Cerrar sesión</a>
+                    <div class="opcion">
+                        <i class='bx bxs-user'></i>
+                        <a href="">Mi perfil</a>
+                    </div>
+
+                    <div class="opcion">
+                        <i class='bx bxs-folder-open'></i>
+                        <a href="">Mis cursos</a>
+                    </div>
+
+                    <div class="opcion">
+                        <i class='bx bx-log-out' ></i>
+                        <a href="">Cerrar sesión</a>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -79,20 +90,6 @@
 
     <?php endif ?>
 
-    <input type="checkbox" id="btn_menu">
-    <div class="container_menu">
-        <div class="cont_menu">
-            <nav>
-                <a href="#">Opcion</a>
-                <a href="#">Opcion</a>
-                <a href="#">Opcion</a>
-                <a href="#">Opcion</a>
-                <a href="#">Opcion</a>
-                <a href="#">Opcion</a>
-            </nav>
-            <label for="btn_menu" class="icon_equis"><i class='bx bx-x'></i></label>
-        </div>
-    </div>
 
 <!--Abriremos esta seccion es para "seprar" la primera seccion la cual es la de informacio inicial-->
     <section class="inicio">

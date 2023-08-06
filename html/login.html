@@ -45,7 +45,7 @@
 
         <div class="logreg-box">
             <div class="form-box login">
-                <form action="">
+                <form id="formulario" action="login.html" method="POST">
                     <h2>Inicia sesión</h2>
 
                     <div class="input-box">
@@ -56,7 +56,8 @@
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="contraseña" required>
+                        <button type="button" class="show-hide" onclick="cambiarVisibilidad()"><i class='bx bx-show' id="i1"></i></button>
+                        <input type="password" name="contraseña" id="contraseña" required>
                         <label>Contraseña</label>
                     </div>
 
@@ -74,7 +75,7 @@
             </div>
 
             <div class="form-box register">
-                <form action="">
+                <form id="formulario2" action="">
                     <h2>Registrate</h2>
 
                     <div class="input-box">
@@ -97,7 +98,8 @@
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                        <input type="password" name="contraseña" required>
+                        <button type="button" class="show-hide" onclick="cambiarVisibilidad2()"><i class='bx bx-show' id="i2"></i></button>
+                        <input type="password" name="contraseña" id="contraseña2" required>
                         <label>Contraseña</label>
                     </div>
 
