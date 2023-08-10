@@ -47,10 +47,13 @@
             #Se uncluye toda la carpeta dependiendo que traiga la variable GET con la carpeta paginas
                 #==:inicio.php==
                 include "subPaginas/".$_GET["subPagina"].".php";
-            }else{
-                #Lista blnaca para la pagina de error
-                
             }
+        }else if(isset($_GET["publicacionesPagina"])){
+            if($_GET["publicacionesPagina"] == "editor"){
+
+                include "publicacionesPaginas/".$_GET["publicacionesPagina"].".php";
+            }
+
         }else{
             #Modularizar
             #Se estandariza que sea la pagina principal

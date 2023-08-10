@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/login.css">
+    <link rel="stylesheet" href="../../html/css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Login</title>
 </head>
@@ -15,11 +15,12 @@
 *carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
 =====================================================================================-->
 
-    <?php if(isset($_GET["paginas"])): ?>
-    <?php if($_GET["pagina"] == "inicio"): ?>
-        <a href="index.php?pagina=inicio">Home</a>
+    <?php if(isset($_GET["Paginas"])): ?>
+
+    <?php if($_GET["Paginas"] == "inicio"): ?>
+        <a href="index.php?Pagina=inicio">Home</a>
     <?php else: ?>
-        <a href="index.php?pagina=inicio">Home</a>
+        <a href="index.php?Pagina=inicio">Home</a>
     <?php endif ?>
 
 <!--=================================================================-->
@@ -30,7 +31,7 @@
 
     <header class="header">
         <nav class="navbar">
-            <a href="index.php?pagina=inicio">Home</a>
+            <a href="index.php?Pagina=inicio">Home</a>
             <a href="#">Nosotros</a>
             <a href="#">Servicios</a>
             <a href="#">Contacto</a>
@@ -109,6 +110,48 @@
                     <div class="login-register">
                         <p>¿No tiene una cuenta? <a href="#" class="register-link">Cree una</a></p>
                     </div>
+
+                    <?php
+                    $ingreso = new controladorLogin();
+                    $ingreso -> ctrIniciarSesion();
+                    ?>
+
+                    <?php
+
+                    $registro = controladorLogin::ctrRegistro();
+
+                    if($registro == "ok"){
+                        
+                        echo '
+                        <script>
+
+                        if(window.history.replaceState){
+                            
+                        window.history.replaceState(null, null, window.location.href);
+                        }
+
+                        </script>
+                        ';
+
+                        echo'<div class="alert alert-success">El usuario se ha registrado exitosamente</div>';
+                    }
+
+                    if($registro == "error"){
+                        echo '
+                        <script>
+
+                        if(window.history.replaceState){
+                            
+                        window.history.replaceState(null, null, window.location.href);
+                        }
+
+                        </script>
+                        ';
+
+                        echo'<div class="alert alert-danger">El usuario no se registro</div>';
+                    }
+
+                    ?>
                 </form>
             </div>
 
@@ -117,13 +160,6 @@
             <?php endif ?>
         
             <!--=================================================================-->
-
-            <?php
-            $ingreso = new controladorLogin();
-            $ingreso -> ctrIniciarSesion();
-            ?>
-
-
 
             <div class="form-box register">
                 <form action="" method="POST">
@@ -156,51 +192,16 @@
                     <button type="submit" class="btn" name="btnLoginRegistro">Registrarme</button>
 
                     <div class="login-register">
-                        <p>Ya tiene una cuenta? <a href="#" class="login-link">Inicia sesión</a></p>
+                        <p>¿Ya tiene una cuenta? <a href="#" class="login-link">Inicia sesión</a></p>
                     </div>
+
                 </form>
 
             </div>
         </div>
     </div>
 
-    <script src="http://localhost/casa_lila/html/js/login.js"></script>
-
-    <?php
-
-    $registro = controladorLogin::ctrRegistro();
-
-    if($registro == "ok"){
-        echo '
-        <script>
-  
-          if(window.history.replaceState){
-            
-              window.history.replaceState(null, null, window.location.href);
-          }
-  
-        </script>
-        ';
-  
-        echo'<div>El usuario se ha registrado exitosamente</div>';
-      }
-
-      if($registro == "error"){
-        echo '
-        <script>
-  
-          if(window.history.replaceState){
-            
-              window.history.replaceState(null, null, window.location.href);
-          }
-  
-        </script>
-        ';
-  
-        echo'<div>Error: No se permiten caracteres especiales</div>';
-      }
-
-    ?>
+    <script src="../../html/js/login.js"></script>
 
 </body>
 </html>

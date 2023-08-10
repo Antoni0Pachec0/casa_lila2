@@ -1,38 +1,82 @@
 <?php
 
+date_default_timezone_set('America/Mexico_City');
+
 class controladorLogin{
 
 /**======================================================================================================== */
-    static public function ctrRegistro(){
+static public function ctrRegistro(){
 
-        if(isset($_POST["loginRegistroNombre"]) && isset($_POST["loginRegistroApellidos"]) && isset($_POST["loginRegistroEmail"]) && isset($_POST["loginRegistroPassword"])){
+    if(isset($_POST["loginRegistroNombre"]) && isset($_POST["loginRegistroApellidos"]) && isset($_POST["loginRegistroEmail"]) && isset($_POST["loginRegistroPassword"])){
 
-            if(preg_match('/^[a-zA-z-ñÑáéíóúÁÉÍÓÚ_ ]+$/',$_POST["loginRegistroNombre"]) &&
-                preg_match('/^[a-zA-z-ñÑáéíóúÁÉÍÓÚ_ ]+$/',$_POST["loginRegistroApellidos"]) &&
-                #Validacion para el correo ===    ESTO ES TODO LO QUE ACEPTARÁ EL INPUT DE CORREO
-                preg_match('/^[^0-9][a-zA-Z0-9_]+([.][ñÑa-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["loginRegistroEmail"]) &&
-                preg_match('/^[0-9a-zA-Z_ñÑ]+$/', $_POST["loginRegistroPassword"])){
+       if(preg_match('/^[a-zA-z-ñÑáéíóúÁÉÍÓÚ_ ]+$/',$_POST["loginRegistroNombre"])){
 
-            $tabla = 'loginRegistro';
+           if(preg_match('/^[a-zA-z-ñÑáéíóúÁÉÍÓÚ_ ]+$/',$_POST["loginRegistroApellidos"])){
 
-            $token = md5($_POST["loginRegistroNombre"] . "+" . $_POST["loginRegistroApellidos"] . "+" . $_POST["loginRegistroEmail"] . "+" . $_POST["loginRegistroPassword"]);
+               if(preg_match('/^[^0-9][a-zA-Z0-9_]+([.][ñÑa-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["loginRegistroEmail"])){
 
-            $datosLoginRegistro = array ("token" => $token,
-                                    "nombre" => $_POST["loginRegistroNombre"],
-                                    "apellidos" => $_POST["loginRegistroApellidos"],
-                                    "email" => $_POST["loginRegistroEmail"],
-                                    "password" => $_POST["loginRegistroPassword"]);
+                   if(preg_match('/^[0-9a-zA-Z_ñÑ][@.-_]+$/', $_POST["loginRegistroPassword"])){
+                       //========AQUI VA TODO EL CODIGOO DEL CONTROLADOR========
 
-            $respuesta = modelLogin::mdlRegistro($tabla, $datosLoginRegistro);
+                       $tabla = 'loginRegistro';
 
-            return $respuesta;
-                }else{
-                    $respuesta = "error";
+                       $token = md5($_POST["loginRegistroNombre"] . "+" . $_POST["loginRegistroApellidos"] . "+" . $_POST["loginRegistroEmail"] . "+" . $_POST["loginRegistroPassword"]);
 
-                    return $respuesta;
-            }
-        }
-    }//llave metodo
+                       $datosLoginRegistro = array ("token" => $token,
+                                               "nombre" => $_POST["loginRegistroNombre"],
+                                               "apellidos" => $_POST["loginRegistroApellidos"],
+                                               "email" => $_POST["loginRegistroEmail"],
+                                               "password" => $_POST["loginRegistroPassword"]);
+
+                       $respuesta = modelLogin::mdlRegistro($tabla, $datosLoginRegistro);
+
+                       return $respuesta;
+
+                       //=======================================================
+                   }else{
+
+                       echo '<script> if(window.history.replaceState){
+                           window.history.replaceState(null, null, window.location.href);
+                       }
+                       </script>';
+                       
+                       echo'<div class="alert alert-danger">Error en los acaracteres de la contraseña</div>';
+                   }
+
+               }else{
+
+                   echo '<script> if(window.history.replaceState){
+                       window.history.replaceState(null, null, window.location.href);
+                   }
+                   </script>';
+                   
+                   echo'<div class="alert alert-danger">Error en los caracteres del email</div>';
+               
+               }
+
+           }else{
+
+               echo '<script> if(window.history.replaceState){
+                   window.history.replaceState(null, null, window.location.href);
+               }
+               </script>';
+               
+               echo'<div class="alert alert-danger">Error en los caracteres del apellido</div>';
+           }
+
+       }else{
+
+           echo '<script> if(window.history.replaceState){
+               window.history.replaceState(null, null, window.location.href);
+           }
+           </script>';
+           
+           echo'<div class="alert alert-danger">Error en los caractéres de nombre</div>';
+
+       }
+
+    }
+}//llave metodo
 
 /**======================================================================================================== */
     public function ctrIniciarSesion(){
@@ -55,46 +99,33 @@ class controladorLogin{
                 $_SESSION["usuarioIngresado"] = "ok";
 //===================================================================================
 //CAMBIARA LA DIRECCION DEL WINDOW LOCATION, AL NOMBRE DE LA CARPETA DE CASALILA2 
-                echo '
-                <script>
 
-                    if(window.history.replaceState){
-                    
+                echo '<script> if(window.history.replaceState){
                         window.history.replaceState(null, null, window.location.href);
                     }
-
+                    
                     window.location = "https://cpruebal.000webhostapp.com/";
-
-                </script>
-                ';
+                    
+                    </script>';
 
             }else if($respuesta["email"] != $_POST["loginSesionEmail"]){
-                echo '
-                <script>
 
-                if(window.history.replaceState){
-                    
-                window.history.replaceState(null, null, window.location.href);
+                echo '<script> if(window.history.replaceState){
+                    window.history.replaceState(null, null, window.location.href);
                 }
-
-                </script>
-                ';
+                </script>';
 
                 echo'<div class="alert alert-danger">El email NO ha sido registrado</div>';
 
             }else{
-                echo '
-                <script>
 
-                if(window.history.replaceState){
-                    
-                window.history.replaceState(null, null, window.location.href);
+                echo '<script> if(window.history.replaceState){
+                    window.history.replaceState(null, null, window.location.href);
                 }
-
-                </script>
-                ';
-
+                </script>';
+                
                 echo'<div class="alert alert-danger">La contraseña es incorrecta</div>';
+
             }
         }
      }//llave metodo
@@ -123,31 +154,32 @@ class controladorLogin{
                 $para = $_POST['txtValidarEmail'];
                 $titulo = 'Restablecer contraseña - Casa Lila';
                 $codigo = rand(1000, 9999);
-                $mensaje =
-                '
+                $mensaje = '
                 <html>
                 <head>
                     <title>Este es el titulo de html</title>
                 </head>
+                    <body>
+                        <header width="100%" height="10px" background="#AF7AC5">
+                            <h1><i>Codigo de verificacion</i></h1>
+                        </header>
+                    <hr> <br>';
 
-                <body>
-                    <header width="100%" height="10px" background="#AF7AC5">
-                        <h1><i>Codigo de verificacion</i></h1>
-                    </header>
-                    <hr> <br>
+                if($_GET["subPagina"] == "verificarCodigo") {
+                    $mensaje .= '<a href="index.php?subPagina=verificarCodigo"></a>';
+                }
 
-                    <h2><b>El código es: </b></h2>
-                    <h3>' . $codigo . '</h3>
-                    <a href="https://cpruebal2.000webhostapp.com/view/subPaginas/verificarCodigo.php?email=' . $para . '&token=' . $token . '">Ingresa el codigo</a>
-                    
+                $mensaje .= '
+                <h2><b>El código es: </b></h2>
+                        <h3>' . $codigo . '</h3>
+                    <a href="https://cpruebal2.000webhostapp.com/index.php?subPagina=verificarCodigo&email=' . $para . '&token=' . $token . '">Ingresa el codigo</a>
                 </body>
-                </html>
-                ';
-        
+                </html>';
+
                 $header = "MIME-Version: 1.0" . "\r\n";
                 $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
                 $header .= "From: pruebaCasaLila@exaple.com" . "\r\n";
-        
+
                 $enviado = false;
                 $mail = mail($para, $titulo, $mensaje, $header);
 
@@ -155,20 +187,22 @@ class controladorLogin{
 
                 if($mail){
                     $enviado = true;
-                    echo '
-                    <script>
-    
-                    if(window.history.replaceState){
-                        
-                     window.history.replaceState(null, null, window.location.href);
+
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
                     }
-    
-                    </script>
-                    ';
-    
+                    </script>';
+                    
                     echo'<div class="alert alert-success">Verifique Su Email</div>';
+
                 }else{
-                    echo "<h1> No se envió </h1>";
+
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    </script>';
+                    
+                    echo'<div class="alert alert-success">No se pudo enviar</div>';
                 }
 
                 $tabla = 'verificarPassword';
@@ -181,18 +215,14 @@ class controladorLogin{
 
             return $respuesta;
             }else if($respuesta["email"] != $_POST["txtValidarEmail"]){
-                echo '
-                <script>
 
-                if(window.history.replaceState){
-                    
-                 window.history.replaceState(null, null, window.location.href);
+                echo '<script> if(window.history.replaceState){
+                    window.history.replaceState(null, null, window.location.href);
                 }
-
-                </script>
-                ';
-
+                </script>';
+                
                 echo'<div class="alert alert-danger">El Email no ha sido registrado</div>';
+
             }
         }
         
@@ -201,43 +231,114 @@ class controladorLogin{
 /**======================================================================================================== */
 
 static public function ctrValidarCodigo(){
-    echo'<h1>LLEGA A LINEA 204 INICIO DEL CONTROLADOR DE CTR</h1>';
-    if(isset($_POST['txtVerificarCodigo'])){
+    if(isset($_POST['txtVerificarCodigo']) && preg_match('/^[0-9]+$/', $_POST["txtVerificarCodigo"])){
 
-        echo'<h1>LLEGA A LINEA 206 DE CTR</h1>';
-
-        $tabla = 'loginRegistro';
-        $columna = "verificarPassword";
+        $tabla = 'verificarPassword';
+        $columna = "codigo";
         $verificacionC = $_POST["txtVerificarCodigo"];
 
-        var_dump($tabla);
-        var_dump($columna);
-        var_dump($verificacionC);
-
-            echo'<h1>LLEGA A LINEA 212 DE CTR</h1>';
-            include("../model/login.model.php");
-            require_once("../model/login.model.php");
             $respuesta = modelLogin::mdlVerificarCodigo($tabla, $columna, $verificacionC);
-            var_dump($respuesta);
-            echo'<h1>LLEGA A LINEA 214 DE CTR</h1>';
 
-            if (is_array($respuesta) && $respuesta["codigo"] == $_POST["txtVerificarCodigo"]){
+            if (is_array($respuesta) && $respuesta["codigo"] == $_POST["txtVerificarCodigo"] && $respuesta['email'] == $_POST["txtVerificarEmail"] && $respuesta['token'] == $_POST["txtVerificarToken"]){
+                
+                $email = $_POST["txtVerificarEmail"];
+                $token = $_POST["txtVerificarToken"];
 
-                var_dump($respuesta);
+                $fecha = ($respuesta['fecha']);
+                $fecha_actual = date('Y-m-d H:m:s');
+                $segundos = strtotime($fecha_actual) - strtotime($fecha);
+                $minutos = $segundos/60;
 
-                echo'<h1>LLEGA A LINEA 218 DE CTR</h1>';
-                header('Location: cambiarContraseña.php');
-                exit;
+                echo $fecha . '<br>';
+                echo $fecha_actual . '<br>';
+                echo $segundos . '<br>';
+                echo $minutos . '<br>';
 
-                echo'<h1>LLEGA A LINEA 222 DE CTR</h1>';
-            }
+                if($minutos > -293.557){
+
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    </script>';
+                    
+                    echo'<div class="alert alert-danger">El código ya caducó</div>';
+
+                }else{
+
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?subPagina=cambiarContraseña&email=' . $email . '&token=' . $token .'";
+
+                </script>';
+
+                }
+
+            }else{
+                    echo '<h1>No existe el codigo</h1>';
+                }
+            }else{
+                echo '<script> if(window.history.replaceState){
+                    window.history.replaceState(null, null, window.location.href);
+                }
+                </script>';
+                
+                echo'<div class="alert alert-danger">Los datos ingresados no son aceptados</div>';
             
             }
 }//llave metodo
 
 /**======================================================================================================== */
 
+static public function ctrCambiarContraseña(){
+    if(isset($_POST['txtCambiarContraseña1'])){
 
+        if(preg_match('/^[0-9a-zA-Z_ñÑ][@.-_]+$/', $_POST["txtCambiarContraseña1"])){
+
+            if(isset($_POST['txtCambiarContraseña2'])){
+
+                if(preg_match('/^[0-9a-zA-Z_ñÑ][@.-_]+$/', $_POST["txtCambiarContraseña2"])){
+                    //========AQUI VA TODO EL CODIGOO DEL CONTROLADOR========
+
+
+                    //=======================================================
+                }else{
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    </script>';
+                    
+                    echo'<div class="alert alert-danger">Caracteres no aceptados en el segundo campo</div>';        
+                }
+
+            }else{
+                echo '<script> if(window.history.replaceState){
+                    window.history.replaceState(null, null, window.location.href);
+                }
+                </script>';
+                
+                echo'<div class="alert alert-danger">Debes ingresar la contraseña en el segundo campo</div>';
+            
+            }
+
+        }else{
+            echo '<script> if(window.history.replaceState){
+                window.history.replaceState(null, null, window.location.href);
+            }
+            </script>';
+            
+            echo'<div class="alert alert-danger">Caracteres no aceptados en el primer campo</div>';
+        }
+
+    }else{
+        echo '<script> if(window.history.replaceState){
+            window.history.replaceState(null, null, window.location.href);
+        }
+        </script>';
+        
+        echo'<div class="alert alert-danger">Debes ingresar la contraseña en el primer campo</div>';
+    }
+}
 
 
 }//llave clase

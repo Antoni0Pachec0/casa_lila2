@@ -1,10 +1,12 @@
 <?php
+
     if(isset($_GET['email']) && isset($_GET['token'])){
         $email = $_GET['email'];
         $token = $_GET['token'];
     }else{
-        header("Location: error404.php");
+        header("Location: ../error404");
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -35,24 +37,12 @@
                 <button type="submit" class="btn" name="btnEnviarCodigo">Enviar</button>
 
                 <?php
-                echo'<h1>LLEGA A LINEA 38 DE VC</h1>';
-
-                var_dump($_POST['btnEnviarCodigo']);
 
                 if(isset($_POST['btnEnviarCodigo'])){
-                    echo'<h1>LLEGA A LINEA 40 DE VC</h1>';
+                    
+                    $codigo = new controladorLogin();
+                    $codigo -> ctrValidarCodigo();
 
-                    include("../../controller/login.controlador.php");
-                    $c = new controladorLogin();
-                    $c -> ctrValidarCodigo();
-
-                    $co2 = controladorLogin::ctrValidarCodigo();
-
-
-                    var_dump($codigo);
-                    var_dump($co2);
-
-                    echo'<h1>LLEGA A LINEA 46 DE VC</h1>';
                 }
                 
                 ?>
