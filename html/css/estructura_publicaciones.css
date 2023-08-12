@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    background: #e4e4e4;
+    display: flex;
+    justify-content: center;
+}
+
+.container-publicacion{
+    position: relative;
+    width: 80%;
+    height: auto;
+    background: orange;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.container-publicacion #publicacion{
+    width: 80%;
+    height: auto;
+    background: #fff;
+}

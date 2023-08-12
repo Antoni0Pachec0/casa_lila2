@@ -10,51 +10,15 @@
 </head>
 <body>
 
-<!--====================================================================================
-*Condiciones para abrir las variables GET mediante la URL se condiciona si la 
-*carpeta paginas es igual auna de las que tenemos se abra           #==:inicio.php==
-=====================================================================================-->
-
-    <?php if(isset($_GET["Paginas"])): ?>
-
-    <?php if($_GET["Paginas"] == "inicio"): ?>
-        <a href="index.php?Pagina=inicio">Home</a>
-    <?php else: ?>
-        <a href="index.php?Pagina=inicio">Home</a>
-    <?php endif ?>
-
-<!--=================================================================-->
-
-    <?php else: ?>
-
-<!--=================================================================-->
 
     <header class="header">
         <nav class="navbar">
+            <!--VARIABLE GET MEDIANTE URL-->
             <a href="index.php?Pagina=inicio">Home</a>
             <a href="#">Nosotros</a>
             <a href="#">Servicios</a>
             <a href="#">Contacto</a>
         </nav>
-
-<!--=================================================================-->
-
-        <?php endif ?>
-        
-<!--=================================================================-->
-
-    <?php if(isset($_GET["subPaginas"])): ?>
-        <?php if($_GET["subPagina"] == "verificarEmail"): ?>
-            <a href="index.php?subPagina=verificarEmail">¿Olvidaste tu contraseña?</a>
-        <?php else: ?>
-            <a href="index.php?subPagina=verificarEmail">¿Olvidaste tu contraseña?</a>
-        <?php endif ?>
-
-<!--=================================================================-->
-
-    <?php else: ?>
-
-<!--=================================================================-->
 
 <form action="login.php" method="POST" class="search-bar">
             <input type="text" placeholder="Buscar...">
@@ -102,6 +66,8 @@
 
                     <div class="remember-forgot">
                         <label><input type="checkbox"> Recuerdame</label>
+                        
+                        <!--VARIABLE GET MEDIANTE URL-->
                         <a href="index.php?subPagina=verificarEmail">¿Olvidaste tu contraseña?</a>
                     </div>
 
@@ -154,12 +120,6 @@
                     ?>
                 </form>
             </div>
-
-            <!--=================================================================-->
-
-            <?php endif ?>
-        
-            <!--=================================================================-->
 
             <div class="form-box register">
                 <form action="" method="POST">

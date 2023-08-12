@@ -54,6 +54,13 @@
                 include "publicacionesPaginas/".$_GET["publicacionesPagina"].".php";
             }
 
+        }else if(isset($_GET['includesPagina'])){
+
+            if($_GET['includesPagina'] == "miPerfil"){
+
+                include "includesPaginas/".$_GET["includesPagina"].".php";
+            }
+
         }else{
             #Modularizar
             #Se estandariza que sea la pagina principal

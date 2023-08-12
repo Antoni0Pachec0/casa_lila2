@@ -4,91 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/inicio.css">
+    <link rel="stylesheet" href="http://localhost/pruebaIntegradora/html/css/paginas/inicio.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Casa Lila</title>
 </head>
 <body>
-    <!--Barra de navegacion superior-->
-    <header class="header">
 
-        <form action="#" class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button type="submit"><i class='bx bx-search'></i></button>
-        </form>
+<!--==========================================================================
+INCLUIMOS LA DIRECCION DEL HEADER PARA HACERLO MAS FACIL
+===========================================================================-->
 
-        <div class="logo"></div>
+<?php include(__DIR__ . '/../includesPaginas/headerGlobal.php'); ?>
 
-        <nav class="navbar">
-            <a href="index.php?pagina=login">Inicia sesión</a>
-        </nav>
+<!--=======================================================================-->
 
-        <!--Condiciones para abrir las variables get mediante la URL-->
-
-        <?php if(isset($_GET["pagina"])): ?>
-
-        <?php if($_GET["pagina"] == "login"): ?>
-            <a href="index.php?pagina=login">Inicia Sesion</a>
-        <?php else: ?>
-            <a href="index.php?pagina=login">Inicia Sesion</a>
-        <?php endif ?>
-
-        <!------------------------------------------------------------>
-
-        <?php if($_GET["pagina"] == "culturales"): ?>
-            <a href="index.php?pagina=culturales">Cursos Culturales</a>
-        <?php else: ?>
-            <a href="index.php?pagina=culturales">Cursos Culturales</a>
-        <?php endif ?>
-
-        <!--=================================================================-->
-
-        <?php if($_GET["pagina"] == "academicos"): ?>
-            <a href="index.php?pagina=academicos">Cursos Academicos</a>
-        <?php else: ?>
-            <a href="index.php?pagina=academicos">Cursos Academicos</a>
-        <?php endif ?>
-
-        <!--=================================================================-->
-
-        <?php if($_GET["pagina"] == "verano"): ?>
-            <a href="index.php?pagina=verano">Cursos de Verano</a>
-        <?php else: ?>
-            <a href="index.php?pagina=verano">Cursos de Verano</a>
-        <?php endif ?>
-
-        <!--=================================================================-->
-
-        <?php else: ?>
-
-        <!--=================================================================-->
-
-
-        <div class="opciones-perfil">
-            <label for="btn-perfil" class="perfil"><i class='bx bxs-user-circle' ></i></label>
-            <input type="checkbox" id="btn-perfil">
-            <div class="opciones">
-                <nav>
-                    <div class="opcion">
-                        <i class='bx bxs-user'></i>
-                        <a href="">Mi perfil</a>
-                    </div>
-
-                    <div class="opcion">
-                        <i class='bx bxs-folder-open'></i>
-                        <a href="">Mis cursos</a>
-                    </div>
-
-                    <div class="opcion">
-                        <i class='bx bx-log-out' ></i>
-                        <a href="">Cerrar sesión</a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <?php endif ?>
 
 
 <!--Abriremos esta seccion es para "seprar" la primera seccion la cual es la de informacio inicial-->
@@ -109,6 +38,8 @@
             <!--El texto que va dentro del mismo-->
             <h2>Cursos Culturales</h2>
             <p>¿Te interesa el arte? Encuentra actividades que ayuden a tu desarrollo artístico y diviertete aprendiendo.</p>
+            
+            <!--VARIABLE GET MEDIANTE URL-->
             <a href="index.php?pagina=culturales">Saber más</a>
         </div>
 
@@ -119,6 +50,8 @@
             <!--El texto que va dentro del mismo-->
             <h2>Cursos Academicos</h2>
             <p>Dí adiós a las dificultades y el aburrimiento, estudiar no debe ser tedioso, sino entretenido.</p>
+            
+            <!--VARIABLE GET MEDIANTE URL-->
             <a href="index.php?pagina=academicos">Saber más</a>
         </div>
 
@@ -128,6 +61,8 @@
             <img src="https://www.diariomotor.com/imagenes/2023/03/f40-liberty-walk-641212ae4033f.jpg" alt="">
             <h2>Cursos de Verano</h2>
             <p>¿Demasiado tiempo libre en vacaciones? Aprovéchalo y aprende algo nuevo.</p>
+            
+            <!--VARIABLE GET MEDIANTE URL-->
             <a href="index.php?pagina=verano">Saber más</a>
         </div>
 
@@ -153,34 +88,15 @@
         <img src="https://2game.com/wp/wp-content/uploads/2021/12/AC-Valhalla-Unlock-DLC-for-all-players.jpg" alt="">
     </article>
 
-    <footer class="footer">
-        <div class="contacto">
-            <ul>
-                <li><h2>Contacto</h2></li>
-                <li>
-                    <div class="c_electronico">
-                        <label for="">Correo Electronico</label><br>
-                        <a href="#">correoelectronico@gmail.com</a>
-                    </div>
-                </li>
 
-                <li>
-                    <div class="direccion">
-                        <label for="">Direccion</label>
-                        <p>Direccion de ejemplo</p>
-                    </div>
-                </li>
 
-                <li>
-                    <div class="sociales">
-                        <a href=""><i class='bx bxl-facebook-circle'></i></a>
-                        <a href=""><i class='bx bxl-instagram'></i></a>
-                        <a href=""><i class='bx bxl-twitter' ></i></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </footer>
+<!--==========================================================================
+INCLUIMOS LA DIRECCION DEL FOOTER PARA HACERLO MAS FACIL
+===========================================================================-->
+
+    <?php include(__DIR__ . '/../includesPaginas/footerGlobal.php'); ?>
+
+<!--=======================================================================-->
 
 </body>
 </html>
