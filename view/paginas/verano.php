@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/pruebaIntegradora/html/css/paginas/verano.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/paginas/verano.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Cursos de Verano</title>
 </head>

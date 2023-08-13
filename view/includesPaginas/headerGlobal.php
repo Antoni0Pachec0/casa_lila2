@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/pruebaIntegradora/html/css/includesPaginas/headerGlobal.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/includesPaginas/headerGlobal.css">
 </head>
 <body>
 

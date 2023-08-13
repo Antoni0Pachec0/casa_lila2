@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="http://localhost/pruebaIntegradora/html/css/paginas/culturales.css">
+    <link rel="stylesheet" href="http://localhost/casa_lila2/html/css/paginas/culturales.css">
     <title>Cursos Culturales</title>
 </head>
 <body>
