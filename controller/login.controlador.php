@@ -96,7 +96,30 @@ static public function ctrRegistro(){
             //Si me coinciden los datos 
             if (is_array($respuesta) && $respuesta["email"] == $_POST["loginSesionEmail"] && $respuesta["password"] == $_POST["loginSesionPassword"]){
 
-                $_SESSION["usuarioIngresado"] = "ok";
+                $_SESSION["usuarioIngresado"] = true;
+
+                if($respuesta['cargo'] == 1){
+
+
+                    $usuario = 'ad';
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    
+                    window.location = "http://localhost/pruebaIntegradora/index.php?pagina=academicos&rol=' . $usuario . '";
+                    
+                    </script>';
+                }else if($respuesta['cargo'] == 2){
+
+                    
+                    echo '<script> if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    
+                    window.location = "http://localhost/pruebaIntegradora/index.php?pagina=academicos";
+                    
+                    </script>';
+                }
 //===================================================================================
 //CAMBIARA LA DIRECCION DEL WINDOW LOCATION, AL NOMBRE DE LA CARPETA DE CASALILA2 
 

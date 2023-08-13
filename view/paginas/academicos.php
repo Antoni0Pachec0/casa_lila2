@@ -1,3 +1,13 @@
+<?php
+
+    if(isset($_GET['rol'])){
+
+    }else{
+        header("Location: ../error404");
+    }
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
